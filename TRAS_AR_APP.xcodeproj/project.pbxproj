@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C48C08D5D3553CAF05437600 /* Pods_TRAS_AR_APP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7827F07B05EBDE369AA1D1 /* Pods_TRAS_AR_APP.framework */; };
+		F1404F1D282FEC14002298AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F1C282FEC14002298AC /* HomeViewController.swift */; };
+		F1404F1F282FF320002298AC /* InfoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F1E282FF320002298AC /* InfoFormViewController.swift */; };
+		F1404F21282FFC5E002298AC /* localInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F20282FFC5E002298AC /* localInfoData.swift */; };
 		F1DC1A96282FE0270036BA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC1A95282FE0270036BA53 /* AppDelegate.swift */; };
 		F1DC1A98282FE0270036BA53 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = F1DC1A97282FE0270036BA53 /* art.scnassets */; };
 		F1DC1A9A282FE0270036BA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC1A99282FE0270036BA53 /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 		2E7827F07B05EBDE369AA1D1 /* Pods_TRAS_AR_APP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRAS_AR_APP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3342FD20AD63E724E6164E33 /* Pods-TRAS_AR_APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRAS_AR_APP.debug.xcconfig"; path = "Target Support Files/Pods-TRAS_AR_APP/Pods-TRAS_AR_APP.debug.xcconfig"; sourceTree = "<group>"; };
 		E13F62AC0DBC8A873672183B /* Pods-TRAS_AR_APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRAS_AR_APP.release.xcconfig"; path = "Target Support Files/Pods-TRAS_AR_APP/Pods-TRAS_AR_APP.release.xcconfig"; sourceTree = "<group>"; };
+		F1404F1C282FEC14002298AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F1404F1E282FF320002298AC /* InfoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFormViewController.swift; sourceTree = "<group>"; };
+		F1404F20282FFC5E002298AC /* localInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localInfoData.swift; sourceTree = "<group>"; };
 		F1DC1A92282FE0270036BA53 /* TRAS_AR_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRAS_AR_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DC1A95282FE0270036BA53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DC1A97282FE0270036BA53 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				F1DC1A99282FE0270036BA53 /* ViewController.swift */,
+				F1404F1C282FEC14002298AC /* HomeViewController.swift */,
+				F1404F1E282FF320002298AC /* InfoFormViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DC1A95282FE0270036BA53 /* AppDelegate.swift */,
+				F1404F20282FFC5E002298AC /* localInfoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +242,9 @@
 			files = (
 				F1DC1A9A282FE0270036BA53 /* ViewController.swift in Sources */,
 				F1DC1A96282FE0270036BA53 /* AppDelegate.swift in Sources */,
+				F1404F21282FFC5E002298AC /* localInfoData.swift in Sources */,
+				F1404F1F282FF320002298AC /* InfoFormViewController.swift in Sources */,
+				F1404F1D282FEC14002298AC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -362,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
