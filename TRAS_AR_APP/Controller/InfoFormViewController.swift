@@ -58,7 +58,7 @@ class InfoFormViewController: FormViewController {
             alertNillData(nodata: "예산")
         } else if category1 == "" {
             alertNillData(nodata: "업종")
-        } else {
+        } else if category2 == "" {
             alertNillData(nodata: "상세 업종")
         }
         
