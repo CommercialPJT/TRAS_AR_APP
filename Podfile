@@ -10,7 +10,6 @@ pod 'MapboxSceneKit', :git => 'https://github.com/mapbox/mapbox-scenekit.git'
 pod 'MapboxMobileEvents'
 pod 'SnapKit'
 pod 'Eureka'
-pod 'Alamofire'
-pod 'SwiftyJSON', '~> 4.0'
+
 
 end

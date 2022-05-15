@@ -10,9 +10,13 @@ import SceneKit
 import ARKit
 import MapboxSceneKit
 
+
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    
+    var graphNodes = [SCNNode]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +31,161 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
+        
         registerGestureRecognizers()
+        
+
+
     }
     
+    func makeBoard(at position: SCNVector3, title text: String, yDatas datas: [Int]) {
+        
+        
+        // 보드 부분
+        
+        let skScene = SKScene(size: CGSize(width: 200, height: 200))
+        skScene.backgroundColor = UIColor.clear
+        
+        let rectangle = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 200, height: 200), cornerRadius: 10)
+        rectangle.fillColor = #colorLiteral(red: 0.807843148708344, green: 0.0274509806185961, blue: 0.333333343267441, alpha: 1.0)
+        rectangle.strokeColor = #colorLiteral(red: 0.439215689897537, green: 0.0117647061124444, blue: 0.192156866192818, alpha: 1.0)
+        rectangle.lineWidth = 5
+        rectangle.alpha = 0.7
+        let labelNode = SKLabelNode(text: text)
+        labelNode.fontSize = 20
+        labelNode.fontName = "San Fransisco"
+        labelNode.position = CGPoint(x:100,y:170)
+        skScene.addChild(rectangle)
+        skScene.addChild(labelNode)
+        
+        
+        // 그래프 레이블 부분
+        
+        let labelNode1 = SKLabelNode(text: "21-1")
+        labelNode1.fontSize = 15
+        labelNode1.fontName = "San Fransisco"
+        labelNode1.position = CGPoint(x:40,y:20)
+        skScene.addChild(labelNode1)
+        
+        
+        let labelNode2 = SKLabelNode(text: "21-2")
+        labelNode2.fontSize = 15
+        labelNode2.fontName = "San Fransisco"
+        labelNode2.position = CGPoint(x:80,y:20)
+        skScene.addChild(labelNode2)
+        
+        
+        let labelNode3 = SKLabelNode(text: "21-3")
+        labelNode3.fontSize = 15
+        labelNode3.fontName = "San Fransisco"
+        labelNode3.position = CGPoint(x:120,y:20)
+        skScene.addChild(labelNode3)
+        
+        
+        let labelNode4 = SKLabelNode(text: "21-4")
+        labelNode4.fontSize = 15
+        labelNode4.fontName = "San Fransisco"
+        labelNode4.position = CGPoint(x:160,y:20)
+        skScene.addChild(labelNode4)
+        
+        
+        // 그래프 y축 부분
+        
+        let labelNode11 = SKLabelNode(text: "\(datas[0])건")
+        labelNode11.fontSize = 11
+        labelNode11.fontName = "San Fransisco"
+        labelNode11.position = CGPoint(x:40,y:50)
+        skScene.addChild(labelNode11)
+        
+        
+        let labelNode12 = SKLabelNode(text: "\(datas[1])건")
+        labelNode12.fontSize = 11
+        labelNode12.fontName = "San Fransisco"
+        labelNode12.position = CGPoint(x:80,y:50)
+        skScene.addChild(labelNode12)
+        
+        
+        let labelNode13 = SKLabelNode(text: "\(datas[2])건")
+        labelNode13.fontSize = 11
+        labelNode13.fontName = "San Fransisco"
+        labelNode13.position = CGPoint(x:120,y:50)
+        skScene.addChild(labelNode13)
+        
+        
+        let labelNode14 = SKLabelNode(text: "\(datas[3])건")
+        labelNode14.fontSize = 11
+        labelNode14.fontName = "San Fransisco"
+        labelNode14.position = CGPoint(x:160,y:50)
+        skScene.addChild(labelNode14)
+        
+        // 실제 보여지는 파트
+        let plane = SCNPlane(width: 0.1, height: 0.05)
+        let material = SCNMaterial()
+        material.isDoubleSided = true
+        material.diffuse.contents = skScene
+        plane.materials = [material]
+        let node = SCNNode(geometry: plane)
+        node.position = position
+        node.eulerAngles.x = .pi/2
+        
+        // 그래프 부분
+        let box = SCNBox(width: 0.01, height: 0.01, length: 0.0003 * Double(datas[0]), chamferRadius: 0)
+        let RGBValue = getRandomRGBValue()
+        box.firstMaterial?.diffuse.contents = UIColor(red: RGBValue.0, green: RGBValue.1, blue: RGBValue.2, alpha: 1)
+        let boxNode = SCNNode(geometry: box)
+        node.addChildNode(boxNode)
+        boxNode.position = SCNVector3(-0.03, 0, 0)
+        
+        
+        let box2 = SCNBox(width: 0.01, height: 0.01, length: 0.0003 * Double(datas[1]), chamferRadius: 0)
+        let RGBValue2 = getRandomRGBValue()
+        box2.firstMaterial?.diffuse.contents = UIColor(red: RGBValue2.0, green: RGBValue2.1, blue: RGBValue2.2, alpha: 1)
+        let boxNode2 = SCNNode(geometry: box2)
+        node.addChildNode(boxNode2)
+        boxNode2.position = SCNVector3(-0.01, 0, 0)
+        
+        let box3 = SCNBox(width: 0.01, height: 0.01, length: 0.0003 * Double(datas[2]), chamferRadius: 0)
+        let RGBValue3 = getRandomRGBValue()
+        box3.firstMaterial?.diffuse.contents = UIColor(red: RGBValue3.0, green: RGBValue3.1, blue: RGBValue3.2, alpha: 1)
+        let boxNode3 = SCNNode(geometry: box3)
+        node.addChildNode(boxNode3)
+        boxNode3.position = SCNVector3(0.01, 0, 0)
+        
+        let box4 = SCNBox(width: 0.01, height: 0.01, length: 0.0003 * Double(datas[3]), chamferRadius: 0)
+        let RGBValue4 = getRandomRGBValue()
+        box4.firstMaterial?.diffuse.contents = UIColor(red: RGBValue4.0, green: RGBValue4.1, blue: RGBValue4.2, alpha: 1)
+        let boxNode4 = SCNNode(geometry: box4)
+        node.addChildNode(boxNode4)
+        boxNode4.position = SCNVector3(0.03, 0, 0)
+        
+        
+        // 부모에 등록
+        self.sceneView.scene.rootNode.addChildNode(node)
+        
+    }
+   
+    
+    func addBox(at position: SCNVector3) {
+        let box = SCNBox(width: 0.01, height: 0.01, length: 0.01, chamferRadius: 0)
+        let RGBValue = getRandomRGBValue()
+        box.firstMaterial?.diffuse.contents = UIColor(red: RGBValue.0, green: RGBValue.1, blue: RGBValue.2, alpha: 1)
+        let boxNode = SCNNode(geometry: box)
+        boxNode.position = position
+        self.sceneView.scene.rootNode.addChildNode(boxNode)
+
+    }
+    
+    private func getRandomRGBValue() -> (CGFloat,CGFloat,CGFloat) {
+        
+        let R = CGFloat(Double.random(in: 0..<1))
+        let G = CGFloat(Double.random(in: 0..<1))
+        let B = CGFloat(Double.random(in: 0..<1))
+        
+        return (R,G,B)
+        
+    }
+    
+//
     private func registerGestureRecognizers() {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
@@ -68,12 +224,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let terrainNode = TerrainNode(minLat: minlat, maxLat: maxlat,
                                       minLon: minlon, maxLon: maxlon)
-        let scale = Float(0.333 * hitResult.distance) / terrainNode.boundingSphere.radius
+        let scale = Float(0.5 * hitResult.distance) / terrainNode.boundingSphere.radius
         terrainNode.transform = SCNMatrix4MakeScale(scale, scale, scale)
         terrainNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         // set the material
         
         terrainNode.geometry?.materials = defaultMaterials()
+        
+//        addBox(at: SCNVector3(terrainNode.position.x, terrainNode.position.y, terrainNode.position.z-0.1))
+        makeBoard(at: SCNVector3(terrainNode.position.x+0.05, terrainNode.position.y, terrainNode.position.z-0.1), title: "점포수 변화",yDatas: [100,200,50,10])
+        makeBoard(at: SCNVector3(terrainNode.position.x-0.07, terrainNode.position.y, terrainNode.position.z-0.1), title: "분기당 매출 건수", yDatas: [100,200,50,10])
+        
+        
         
         self.sceneView.scene.rootNode.addChildNode(terrainNode)
         

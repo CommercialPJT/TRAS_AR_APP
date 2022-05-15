@@ -1,27 +1,21 @@
 PODS:
-  - Alamofire (5.4.3)
   - Eureka (5.3.6)
   - MapboxMobileEvents (0.10.14)
   - MapboxSceneKit (0.1.0):
     - MapboxMobileEvents (~> 0.4)
   - SnapKit (5.0.1)
-  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - Alamofire
   - Eureka
   - MapboxMobileEvents
   - MapboxSceneKit (from `https://github.com/mapbox/mapbox-scenekit.git`)
   - SnapKit
-  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Eureka
     - MapboxMobileEvents
     - SnapKit
-    - SwiftyJSON
 
 EXTERNAL SOURCES:
   MapboxSceneKit:
@@ -33,13 +27,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/mapbox/mapbox-scenekit.git
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Eureka: 28ad9dec6286cd7cd601fdf8e8df39bb7356a8f4
   MapboxMobileEvents: 5a172cc9bbf8ac0e45ba86095cbee685ede248cc
   MapboxSceneKit: f51dd12b4e82735e4571e394841ca42bcac7990f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: f88c9b91601018a907d00bf1037be39703502084
+PODFILE CHECKSUM: 1a6e216618a6a180c52a69f8def30eb704c6a696
 
 COCOAPODS: 1.10.2

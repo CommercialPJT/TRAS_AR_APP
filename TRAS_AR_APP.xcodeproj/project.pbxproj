@@ -11,6 +11,8 @@
 		F1404F1D282FEC14002298AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F1C282FEC14002298AC /* HomeViewController.swift */; };
 		F1404F1F282FF320002298AC /* InfoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F1E282FF320002298AC /* InfoFormViewController.swift */; };
 		F1404F21282FFC5E002298AC /* localInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F20282FFC5E002298AC /* localInfoData.swift */; };
+		F1404F2328301A46002298AC /* LocalInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F2228301A46002298AC /* LocalInfoModel.swift */; };
+		F1404F2528301A53002298AC /* LocalInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F2428301A53002298AC /* LocalInfoManager.swift */; };
 		F1DC1A96282FE0270036BA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC1A95282FE0270036BA53 /* AppDelegate.swift */; };
 		F1DC1A98282FE0270036BA53 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = F1DC1A97282FE0270036BA53 /* art.scnassets */; };
 		F1DC1A9A282FE0270036BA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC1A99282FE0270036BA53 /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		F1404F1C282FEC14002298AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F1404F1E282FF320002298AC /* InfoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFormViewController.swift; sourceTree = "<group>"; };
 		F1404F20282FFC5E002298AC /* localInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localInfoData.swift; sourceTree = "<group>"; };
+		F1404F2228301A46002298AC /* LocalInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInfoModel.swift; sourceTree = "<group>"; };
+		F1404F2428301A53002298AC /* LocalInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalInfoManager.swift; sourceTree = "<group>"; };
 		F1DC1A92282FE0270036BA53 /* TRAS_AR_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRAS_AR_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DC1A95282FE0270036BA53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DC1A97282FE0270036BA53 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			children = (
 				F1DC1A95282FE0270036BA53 /* AppDelegate.swift */,
 				F1404F20282FFC5E002298AC /* localInfoData.swift */,
+				F1404F2228301A46002298AC /* LocalInfoModel.swift */,
+				F1404F2428301A53002298AC /* LocalInfoManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +249,8 @@
 				F1DC1A9A282FE0270036BA53 /* ViewController.swift in Sources */,
 				F1DC1A96282FE0270036BA53 /* AppDelegate.swift in Sources */,
 				F1404F21282FFC5E002298AC /* localInfoData.swift in Sources */,
+				F1404F2528301A53002298AC /* LocalInfoManager.swift in Sources */,
+				F1404F2328301A46002298AC /* LocalInfoModel.swift in Sources */,
 				F1404F1F282FF320002298AC /* InfoFormViewController.swift in Sources */,
 				F1404F1D282FEC14002298AC /* HomeViewController.swift in Sources */,
 			);
