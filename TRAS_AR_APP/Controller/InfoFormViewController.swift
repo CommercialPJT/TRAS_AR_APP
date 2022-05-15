@@ -48,6 +48,27 @@ class InfoFormViewController: FormViewController {
         
     }
     
+    private func findCoorData(dong data: String) {
+        
+        for item in locDatas {
+            print(item.법정동, self.dong)
+            if item.법정동 == data {
+                coor = [item.상권위도, item.상권경도]
+                return
+            }
+        }
+        
+        for item in locDatas {
+            print(item.법정동, self.dong)
+            if item.법정동 == data {
+                coor = [item.상권위도, item.상권경도]
+                return
+            }
+        }
+        coor = [37.49510129007885, 127.11826137870351]
+        return 
+    }
+    
     @objc func toARViewTapped() {
         
         if gu == "" {
