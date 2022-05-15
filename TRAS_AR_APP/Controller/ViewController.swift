@@ -38,7 +38,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     }
     
-    func makeBoard(at position: SCNVector3, title text: String, yDatas datas: [Int]) {
+    
+    func makeBoard2(at position: SCNVector3, title text: String, ylabel label: [String],yDatas datas: [Int]) {
         
         
         // 보드 부분
@@ -61,28 +62,112 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // 그래프 레이블 부분
         
-        let labelNode1 = SKLabelNode(text: "21-1")
+        let labelNode1 = SKLabelNode(text: label[0])
+        labelNode1.fontSize = 15
+        labelNode1.fontName = "San Fransisco"
+        labelNode1.position = CGPoint(x:47,y:30)
+        skScene.addChild(labelNode1)
+        
+        let labelNode2 = SKLabelNode(text: label[1])
+        labelNode2.fontSize = 15
+        labelNode2.fontName = "San Fransisco"
+        labelNode2.position = CGPoint(x:140,y:30)
+        skScene.addChild(labelNode2)
+    
+        
+        
+        // 그래프 y축 부분
+        
+        let labelNode11 = SKLabelNode(text: "\(datas[0])건")
+        labelNode11.fontSize = 11
+        labelNode11.fontName = "San Fransisco"
+        labelNode11.position = CGPoint(x:50,y:55)
+        skScene.addChild(labelNode11)
+        
+        let labelNode12 = SKLabelNode(text: "\(datas[1])건")
+        labelNode12.fontSize = 11
+        labelNode12.fontName = "San Fransisco"
+        labelNode12.position = CGPoint(x:140,y:55)
+        skScene.addChild(labelNode12)
+        
+        
+        // 실제 보여지는 파트
+        let plane = SCNPlane(width: 0.07, height: 0.05)
+        let material = SCNMaterial()
+        material.isDoubleSided = true
+        material.diffuse.contents = skScene
+        plane.materials = [material]
+        let node = SCNNode(geometry: plane)
+        node.position = position
+        node.eulerAngles.x = .pi/2
+        
+        // 그래프 부분
+        let box = SCNBox(width: 0.01, height: 0.01, length: 0.0003 * Double(datas[0]), chamferRadius: 0)
+        let RGBValue = getRandomRGBValue()
+        box.firstMaterial?.diffuse.contents = UIColor(red: RGBValue.0, green: RGBValue.1, blue: RGBValue.2, alpha: 1)
+        let boxNode = SCNNode(geometry: box)
+        node.addChildNode(boxNode)
+        boxNode.position = SCNVector3(-0.018, 0, 0)
+        
+        
+        let box2 = SCNBox(width: 0.01, height: 0.01, length: 0.0003 * Double(datas[1]), chamferRadius: 0)
+        let RGBValue2 = getRandomRGBValue()
+        box2.firstMaterial?.diffuse.contents = UIColor(red: RGBValue2.0, green: RGBValue2.1, blue: RGBValue2.2, alpha: 1)
+        let boxNode2 = SCNNode(geometry: box2)
+        node.addChildNode(boxNode2)
+        boxNode2.position = SCNVector3(0.015, 0, 0)
+        
+        
+        // 부모에 등록
+        self.sceneView.scene.rootNode.addChildNode(node)
+        
+    }
+    
+    func makeBoard(at position: SCNVector3, title text: String, ylabel label: [String],yDatas datas: [Int]) {
+        
+        
+        // 보드 부분
+        
+        let skScene = SKScene(size: CGSize(width: 200, height: 200))
+        skScene.backgroundColor = UIColor.clear
+        
+        let rectangle = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 200, height: 200), cornerRadius: 10)
+        rectangle.fillColor = #colorLiteral(red: 0.807843148708344, green: 0.0274509806185961, blue: 0.333333343267441, alpha: 1.0)
+        rectangle.strokeColor = #colorLiteral(red: 0.439215689897537, green: 0.0117647061124444, blue: 0.192156866192818, alpha: 1.0)
+        rectangle.lineWidth = 5
+        rectangle.alpha = 0.7
+        let labelNode = SKLabelNode(text: text)
+        labelNode.fontSize = 20
+        labelNode.fontName = "San Fransisco"
+        labelNode.position = CGPoint(x:100,y:170)
+        skScene.addChild(rectangle)
+        skScene.addChild(labelNode)
+        
+        
+        // 그래프 레이블 부분
+        
+        let labelNode1 = SKLabelNode(text: label[0])
         labelNode1.fontSize = 15
         labelNode1.fontName = "San Fransisco"
         labelNode1.position = CGPoint(x:40,y:20)
         skScene.addChild(labelNode1)
         
         
-        let labelNode2 = SKLabelNode(text: "21-2")
+        let labelNode2 = SKLabelNode(text: label[1])
         labelNode2.fontSize = 15
         labelNode2.fontName = "San Fransisco"
         labelNode2.position = CGPoint(x:80,y:20)
         skScene.addChild(labelNode2)
         
         
-        let labelNode3 = SKLabelNode(text: "21-3")
+        let labelNode3 = SKLabelNode(text: label[2])
         labelNode3.fontSize = 15
         labelNode3.fontName = "San Fransisco"
         labelNode3.position = CGPoint(x:120,y:20)
         skScene.addChild(labelNode3)
         
         
-        let labelNode4 = SKLabelNode(text: "21-4")
+        let labelNode4 = SKLabelNode(text: label[3])
         labelNode4.fontSize = 15
         labelNode4.fontName = "San Fransisco"
         labelNode4.position = CGPoint(x:160,y:20)
@@ -232,8 +317,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         terrainNode.geometry?.materials = defaultMaterials()
         
 //        addBox(at: SCNVector3(terrainNode.position.x, terrainNode.position.y, terrainNode.position.z-0.1))
-        makeBoard(at: SCNVector3(terrainNode.position.x+0.05, terrainNode.position.y, terrainNode.position.z-0.1), title: "점포수 변화",yDatas: [100,200,50,10])
-        makeBoard(at: SCNVector3(terrainNode.position.x-0.07, terrainNode.position.y, terrainNode.position.z-0.1), title: "분기당 매출 건수", yDatas: [100,200,50,10])
+        makeBoard(at: SCNVector3(terrainNode.position.x+0.05, terrainNode.position.y, terrainNode.position.z-0.1), title: "점포수 변화", ylabel: ["21-1","21-2","21-3","21-4"],yDatas: [100,200,50,10])
+        makeBoard(at: SCNVector3(terrainNode.position.x-0.07, terrainNode.position.y, terrainNode.position.z-0.1), title: "분기당 매출 건수", ylabel: ["21-1","21-2","21-3","21-4"], yDatas: [100,200,50,10])
+        
+        makeBoard2(at: SCNVector3(terrainNode.position.x+0.17, terrainNode.position.y, terrainNode.position.z-0.1), title: "대분류 내 소분류 비중",ylabel: ["입시학원","교육 분야"], yDatas: [70,110])
+        
+        makeBoard2(at: SCNVector3(terrainNode.position.x-0.07, terrainNode.position.y, terrainNode.position.z-0.2), title: "주중/주말 매출 건수", ylabel: ["주중","주말"], yDatas: [30,70])
+        
+        makeBoard2(at: SCNVector3(terrainNode.position.x+0.05, terrainNode.position.y, terrainNode.position.z-0.2), title: "낮/밤 매출 건수", ylabel: ["낮","밤"], yDatas: [30,70])
+        
+        makeBoard2(at: SCNVector3(terrainNode.position.x+0.17, terrainNode.position.y, terrainNode.position.z-0.2), title: "성별 매출 건수", ylabel: ["남","녀"], yDatas: [30,70])
+        
+        makeBoard2(at: SCNVector3(terrainNode.position.x+0.17, terrainNode.position.y, terrainNode.position.z), title: "연령대별 매출 건수", ylabel: ["청소년","청년","장년","중노년"], yDatas: [22,10,38,30])
+        
         
         
         
