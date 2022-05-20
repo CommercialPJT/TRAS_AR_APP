@@ -12,5 +12,7 @@ pod 'SnapKit'
 pod 'Eureka'
 pod 'Alamofire'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'lottie-ios'
+
 
 end
