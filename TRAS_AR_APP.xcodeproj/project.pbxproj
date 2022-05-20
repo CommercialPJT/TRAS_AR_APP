@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C48C08D5D3553CAF05437600 /* Pods_TRAS_AR_APP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7827F07B05EBDE369AA1D1 /* Pods_TRAS_AR_APP.framework */; };
+		F13651422835FF8D00E3E563 /* 78003-town.json in Resources */ = {isa = PBXBuildFile; fileRef = F13651412835FF8D00E3E563 /* 78003-town.json */; };
+		F13651442836049800E3E563 /* 82561-building.json in Resources */ = {isa = PBXBuildFile; fileRef = F13651432836049800E3E563 /* 82561-building.json */; };
 		F1404F1D282FEC14002298AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F1C282FEC14002298AC /* HomeViewController.swift */; };
 		F1404F1F282FF320002298AC /* InfoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F1E282FF320002298AC /* InfoFormViewController.swift */; };
 		F1404F21282FFC5E002298AC /* localInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1404F20282FFC5E002298AC /* localInfoData.swift */; };
@@ -25,6 +27,8 @@
 		2E7827F07B05EBDE369AA1D1 /* Pods_TRAS_AR_APP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRAS_AR_APP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3342FD20AD63E724E6164E33 /* Pods-TRAS_AR_APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRAS_AR_APP.debug.xcconfig"; path = "Target Support Files/Pods-TRAS_AR_APP/Pods-TRAS_AR_APP.debug.xcconfig"; sourceTree = "<group>"; };
 		E13F62AC0DBC8A873672183B /* Pods-TRAS_AR_APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRAS_AR_APP.release.xcconfig"; path = "Target Support Files/Pods-TRAS_AR_APP/Pods-TRAS_AR_APP.release.xcconfig"; sourceTree = "<group>"; };
+		F13651412835FF8D00E3E563 /* 78003-town.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "78003-town.json"; sourceTree = "<group>"; };
+		F13651432836049800E3E563 /* 82561-building.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "82561-building.json"; sourceTree = "<group>"; };
 		F1404F1C282FEC14002298AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F1404F1E282FF320002298AC /* InfoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFormViewController.swift; sourceTree = "<group>"; };
 		F1404F20282FFC5E002298AC /* localInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localInfoData.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		F1DC1A94282FE0270036BA53 /* TRAS_AR_APP */ = {
 			isa = PBXGroup;
 			children = (
+				F13651432836049800E3E563 /* 82561-building.json */,
+				F13651412835FF8D00E3E563 /* 78003-town.json */,
 				F1DC1AAB282FEA570036BA53 /* Model */,
 				F1DC1AAA282FEA530036BA53 /* Controller */,
 				F1DC1AA9282FEA4D0036BA53 /* View */,
@@ -190,9 +196,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13651442836049800E3E563 /* 82561-building.json in Resources */,
 				F1DC1A98282FE0270036BA53 /* art.scnassets in Resources */,
 				F1DC1AA2282FE0290036BA53 /* LaunchScreen.storyboard in Resources */,
 				F1DC1A9F282FE0290036BA53 /* Assets.xcassets in Resources */,
+				F13651422835FF8D00E3E563 /* 78003-town.json in Resources */,
 				F1DC1A9D282FE0270036BA53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
