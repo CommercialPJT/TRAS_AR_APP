@@ -10,7 +10,8 @@
 
 
 ## 입력 폼 
-![ezgif com-gif-maker (21)](https://user-images.githubusercontent.com/76652929/169702098-3c52595a-6840-4c3a-8934-4302ad5f0548.gif)
+![ezgif com-gif-maker (25)](https://user-images.githubusercontent.com/76652929/169702174-55678f58-8943-4c11-86f6-83c4df3caa73.gif)
+
 
 
 
