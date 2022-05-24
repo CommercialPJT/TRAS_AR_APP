@@ -26,7 +26,7 @@ struct EventManger {
     
     var delegate: EventManagerDelegate?
     
-    func getEventData(shoppingMall: String) {
+    func getEventData(key: String) {
         
         let url = "https://20ckk8.deta.dev/"
         
@@ -34,7 +34,7 @@ struct EventManger {
             switch response.result {
             case .success(let value):
                 let eventJSON: JSON = JSON(value)
-                if let event = updateEventData(json: eventJSON, ShoppingMall: "loc_datas") {
+                if let event = updateEventData(json: eventJSON, key: "loc_datas") {
                     self.delegate?.didUpdateEventData(self,event: event)
                  
                 }
@@ -47,9 +47,9 @@ struct EventManger {
     }
     
     
-    func updateEventData(json:JSON,ShoppingMall: String) -> locList? {
+    func updateEventData(json:JSON,key: String) -> locList? {
         
-        guard let lists = json[ShoppingMall].array else {return nil}
+        guard let lists = json[key].array else {return nil}
         var datasList = [locInfo]()
         
         for list in lists {
