@@ -78,12 +78,12 @@ class InfoFormViewController: FormViewController {
         return 
     }
     
-    private func findAreaInfo(dong data: String) {
+    private func findAreaInfo(dong data: String, category2 category: String) {
         
         let list1 = locFullDic["20214"]!
         for item in list1 {
 
-            if item.법정동 == data {
+            if item.법정동 == data && item.서비스업종코드명 == category {
                 fourthQuarter = item
                 print(fourthQuarter!)
                 break
@@ -93,7 +93,7 @@ class InfoFormViewController: FormViewController {
         let list2 = locFullDic["20213"]!
         for item in list2 {
 
-            if item.법정동 == data {
+            if item.법정동 == data && item.서비스업종코드명 == category {
                 thirdQuarter = item
                 print(thirdQuarter!)
                 break
@@ -104,7 +104,7 @@ class InfoFormViewController: FormViewController {
         let list3 = locFullDic["20212"]!
         for item in list3 {
 
-            if item.법정동 == data {
+            if item.법정동 == data && item.서비스업종코드명 == category {
                 secondQuearter = item
                 print(secondQuearter!)
                 break
@@ -115,7 +115,7 @@ class InfoFormViewController: FormViewController {
         let list4 = locFullDic["20211"]!
         for item in list4 {
             
-            if item.법정동 == data {
+            if item.법정동 == data && item.서비스업종코드명 == category {
                 firstQuarter = item
                 print(firstQuarter!)
                 break
@@ -139,7 +139,7 @@ class InfoFormViewController: FormViewController {
         }
         
         findCoorData(dong: self.dong)
-        findAreaInfo(dong: self.dong)
+        findAreaInfo(dong: self.dong, category2: self.category2)
         
 
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARMapView")
