@@ -16,6 +16,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     
     var graphNodes = [SCNNode]()
+    
+    var category1 = ""
 
     
     override func viewDidLoad() {
@@ -485,7 +487,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         makeBoard(at: SCNVector3(terrainNode.position.x, terrainNode.position.y, terrainNode.position.z-0.15), title: "점포수 변화", ylabel: ["21-1","21-2","21-3","21-4"], dataLabel: ["\(firstQuarter.점포수) 개","\(secondQuearter.점포수) 개","\(thirdQuarter.점포수) 개","\(fourthQuarter.점포수) 개"], yDatas: [firstQuarter.점포수,secondQuearter.점포수,thirdQuarter.점포수,fourthQuarter.점포수])
         makeBoard3(at: SCNVector3(terrainNode.position.x-0.15, terrainNode.position.y, terrainNode.position.z-0.15), title: "분기당 매출 건수", ylabel: ["21-1","21-2","21-3","21-4"], dataLabel: ["\(firstQuarter.분기당매출건수)","\(secondQuearter.분기당매출건수)","\(thirdQuarter.분기당매출건수)","\(fourthQuarter.분기당매출건수)"], yDatas: [firstQuarter.분기당매출건수,secondQuearter.분기당매출건수,thirdQuarter.분기당매출건수,fourthQuarter.분기당매출건수])
         
-        makeBoard2(at: SCNVector3(terrainNode.position.x+0.15, terrainNode.position.y, terrainNode.position.z-0.15), title: "대분류 내 소분류 비중",ylabel: ["입시학원","교육 분야"], dataLabel: ["\(fourthQuarter.점포수) 개","\(fourthQuarter.점포수) 개"], yDatas: [fourthQuarter.점포수,fourthQuarter.점포수])
+        findCategory1()
+        makeBoard2(at: SCNVector3(terrainNode.position.x+0.15, terrainNode.position.y, terrainNode.position.z-0.15), title: "대분류 내 소분류 비중",ylabel: [fourthQuarter.서비스업종코드명,self.category1], dataLabel: ["\(fourthQuarter.점포수) 개","\(fourthQuarter.점포수) 개"], yDatas: [fourthQuarter.점포수,fourthQuarter.점포수])
         
         makeBoard2(at: SCNVector3(terrainNode.position.x-0.15, terrainNode.position.y, terrainNode.position.z-0.25), title: "주중/주말 매출 비교", ylabel: ["주중","주말"], dataLabel: ["\(fourthQuarter.주중매출비율) %","\(fourthQuarter.주말매출비율) %"], yDatas: [fourthQuarter.주중매출비율,fourthQuarter.주말매출비율])
         
@@ -517,6 +520,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         terrainNode.geometry?.materials[4].diffuse.contents = image
                     }
                 }
+    }
+    
+    private func findCategory1() {
+        
+        for cate in category1List {
+            
+            guard let candi = categoryList[cate] else {return}
+            
+            if candi.contains(fourthQuarter.서비스업종코드명) {
+                self.category1 = cate
+                break
+            }
+            
+        }
     }
     
     
