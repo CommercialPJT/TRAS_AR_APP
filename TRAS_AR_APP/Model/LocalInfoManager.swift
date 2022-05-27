@@ -10,9 +10,9 @@ import SwiftyJSON
 import Alamofire
 import Foundation
 
-protocol EventManagerDelegate {
-    func didUpdateEventData(_ eventManger: EventManger, event: locList)
-    func didFailUpdateEventData(error: Error)
+protocol fullLocManagerDelegate {
+    func didUpdateLocData(_ locManger: fullLocManager, event: locList)
+    func didFailUpdateLocData(error: Error)
 }
 
 
@@ -22,11 +22,11 @@ protocol LocInfoManagerDelegate {
     
 }
 
-struct EventManger {
+struct fullLocManager {
     
-    var delegate: EventManagerDelegate?
+    var delegate: fullLocManagerDelegate?
     
-    func getEventData(key: String) {
+    func getLocData(key: String) {
         
         let url = "https://20ckk8.deta.dev/"
         
@@ -34,20 +34,20 @@ struct EventManger {
             switch response.result {
             case .success(let value):
                 let eventJSON: JSON = JSON(value)
-                if let event = updateEventData(json: eventJSON, key: "loc_datas") {
-                    self.delegate?.didUpdateEventData(self,event: event)
+                if let event = updateLocData(json: eventJSON, key: "loc_datas") {
+                    self.delegate?.didUpdateLocData(self,event: event)
                  
                 }
             case let .failure(error):
                 
-                self.delegate?.didFailUpdateEventData(error: error)
+                self.delegate?.didFailUpdateLocData(error: error)
 
             }
         }
     }
     
     
-    func updateEventData(json:JSON,key: String) -> locList? {
+    func updateLocData(json:JSON,key: String) -> locList? {
         
         guard let lists = json[key].array else {return nil}
         var datasList = [locInfo]()

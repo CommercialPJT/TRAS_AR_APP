@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
         return historyButton
     }()
     
-    var eventManger = EventManger()
+    var FullLocManger = fullLocManager()
     var locData: locList!
     
     var LocalInfoManager = LocInfoManager()
@@ -79,8 +79,8 @@ class HomeViewController: UIViewController {
 //            let areaList = try? JSONDecoder().decode(areaInfo.self, from: jsonData)
 //        else { return  }
 //
-        eventManger.delegate = self
-        eventManger.getEventData(shoppingMall: "loc_datas")
+        FullLocManger.delegate = self
+        FullLocManger.getLocData(key: "loc_datas")
         
         LocalInfoManager.delegate = self
 //        2021-4
@@ -182,16 +182,16 @@ class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController: EventManagerDelegate {
+extension HomeViewController: fullLocManagerDelegate {
     
-    func didUpdateEventData(_ eventManger: EventManger, event: locList) {
+    func didUpdateLocData(_ locManger: fullLocManager, event: locList) {
         DispatchQueue.main.async {
             self.locData = event
 //            print(event)
         }
     }
     
-    func didFailUpdateEventData(error: Error) {
+    func didFailUpdateLocData(error: Error) {
         print(error)
     }
 }
